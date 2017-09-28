@@ -9,7 +9,8 @@
   "scripts": {
     "prebuild": "mkdir -p dist",
     "build": "babel ./src/index.js --out-file dist/unicorn-contributor",
-    "postbuild": "chmod +x ./dist/unicorn-contributor"
+    "postbuild": "chmod +x ./dist/unicorn-contributor",
+    "start": "babel-node ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -40,5 +41,10 @@
     "presets": [
       "es2015"
     ]
+  },
+  "dependencies": {
+    "commander": "^2.11.0",
+    "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13"
   }
 }
