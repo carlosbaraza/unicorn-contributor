@@ -1,0 +1,44 @@
+{
+  "name": "unicorn-contributor",
+  "version": "1.0.0",
+  "description": "Complete your GitHub contributions bar with one command",
+  "main": "./src/index.js",
+  "bin": {
+    "unicorn-contributor": "./dist/unicorn-contributor"
+  },
+  "scripts": {
+    "prebuild": "mkdir -p dist",
+    "build": "babel ./src/index.js --out-file dist/unicorn-contributor",
+    "postbuild": "chmod +x ./dist/unicorn-contributor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosbaraza/unicorn-contributor.git"
+  },
+  "keywords": [
+    "unicorn-contributor",
+    "contributor",
+    "github",
+    "open",
+    "source",
+    "crazy",
+    "hours",
+    "love",
+    "coding"
+  ],
+  "author": "Carlos Baraza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlosbaraza/unicorn-contributor/issues"
+  },
+  "homepage": "https://github.com/carlosbaraza/unicorn-contributor#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  }
+}
