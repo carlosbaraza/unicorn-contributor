@@ -1,5 +1,7 @@
 # Unicorn Contributor
 
+![Full GitHub contribution bar - Unicorn Contributor](https://raw.githubusercontent.com/carlosbaraza/unicorn-contributor/master/docs/imgs/green-bar.png)
+
 Pressed to complete your GitHub profile green bar? Complete the bar in one second.
 
 1. ```npm i -g unicorn-contributor```
