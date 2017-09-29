@@ -26,11 +26,19 @@
 import program from "commander";
 import moment from "moment-timezone";
 import { spawnSync } from "child_process";
-import { times, randomInt } from "./utils";
+import { times, randomInt, printUnicorn, printHeader } from "./utils";
+
+const _progress = require('cli-progress');
+const progressBar = new _progress.Bar({}, _progress.Presets.shades_classic);
 
 export function deliverUnicorn() {
+  printHeader();
+  console.log('Generating your human looking contribution bar...\n');
   const days = initDays();
   initContributions(days);
+
+  console.log('Running GIT contributions now...\n');
+  progressBar.start(program.contributions, 0);
   contribute(days);
   celebrate();
 }
@@ -55,7 +63,7 @@ function initDays() {
 function assignContributions(days) {
   let remainingContributions = program.contributions - days.length;
   while (remainingContributions > 0) {
-    const dayIndex = randomInt(days.length, 0);
+    const dayIndex = randomInt(days.length - 1, 0);
 
     // This makes it look more realistic
     let contributionsForTheDay = randomInt(15, 3);
@@ -87,6 +95,7 @@ function initContributions(days) {
 function contribute(days) {
   days.forEach(day => {
     day.contributions.forEach(contribution => {
+      progressBar.increment(1);
       runCommand(contribution.command);
       runCommand(`git add ${process.cwd()}/.unicorn-contributor`);
       runCommand(
@@ -96,35 +105,16 @@ function contribute(days) {
       );
     });
   });
+  progressBar.stop();
 }
 
 function runCommand(command) {
-  console.log("Executing:", command);
+  if (program.verbose) console.log("Executing:", command);
   return spawnSync(command, [], { shell: true });
 }
 
 function celebrate() {
-  console.log(`
-                   ,,))))))));,
-                __)))))))))))))),
-     \|/       -\(((((''''((((((((.
-     -*-==//////((''  .     \`)))))),
-     /|\      ))| o    ;-.    '(((((                                  ,(,
-              ( \`|    /  )    ;))))'                               ,_))^;(~
-                 |   |   |   ,))((((_     _____------~~~-.        %,;(;(>';'~
-                 o_);   ;    )))(((\` ~---~  \`::           \      %%~~)(v;(\`('~
-                       ;    ''''\`\`\`\`         \`:       \`:::|\,__,%%    );\`'; ~
-                      |   _                )     /      \`:|\`----'     \`-'
-                ______/\/~    |                 /        /
-              /~;;.____/;;'  /          ___--,-(   \`;;;/
-             / //  _;______;'------~~~~~    /;;/\    /
-            //  | |                        / ;   \;;,
-           (<_  | ;                      /',/-----'  _>
-            \_| ||_                     //~;~~~~~~~~~
-                \`\_|                   (,~~
-                                        \~\`
-                                         ~~
-  `);
+  printUnicorn();
   console.log(
     "Congratulations! You are a unicorn contributor.",
     "Just push this repository to GitHub and your profile will display a nice",

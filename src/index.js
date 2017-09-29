@@ -38,6 +38,10 @@ program
     '-Z, --crazy-hours',
     'Pretend you code instead of watching Netflix every night'
   )
+  .option(
+    '-v, --verbose',
+    'Show git commands being executed, etc.'
+  )
   .parse(process.argv);
 
 

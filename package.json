@@ -43,6 +43,7 @@
     ]
   },
   "dependencies": {
+    "cli-progress": "^1.6.0",
     "commander": "^2.11.0",
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13"
