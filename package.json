@@ -8,7 +8,7 @@
   },
   "scripts": {
     "prebuild": "mkdir -p dist",
-    "build": "babel ./src/index.js --out-file dist/unicorn-contributor",
+    "build": "babel src -d dist && rm dist/index.js && babel ./src/index.js --out-file dist/unicorn-contributor",
     "postbuild": "chmod +x ./dist/unicorn-contributor",
     "start": "babel-node ./src/index.js"
   },
