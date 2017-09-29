@@ -10,11 +10,22 @@ Pressed to complete your GitHub profile green bar? Complete the bar in one secon
 
 # Options
 ```
-unicorn-contributor
-  --contributions 1000          # default 1000 (minimum 365, guess why)
-  --only-weekends               # recruiters love geeks without social life
-  --timezone "+1"               # change your timezone, defaults to GMT+0
-  --crazy-hours 6-24            # pretend you code instead of watching Netflix every night
+Usage: unicorn-contributor [options]
+
+
+Options:
+
+  -V, --version                        output the version number
+  -w, --only-weekends                  Recruiters love geeks without social life
+  -t, --timezone [timezone]            Change your timezone (tz) [GMT]
+  -u, --time-wake-up [time]            Time for first commit of the day [6]
+  -s, --time-sleep [time]              Time for last sleepy commit [24]
+  -f, --from [date]                    Date to start contributing [20160101]
+  -t, --to [date]                      Date to stop contributing [20190101]
+  -c, --contributions [contributions]  Defaults to (number of days from --from to --to) times 3 [3000]
+  -Z, --crazy-hours                    Pretend you code instead of watching Netflix every night
+  -v, --verbose                        Show git commands being executed, etc.
+  -h, --help                           output usage information
 ```
 
 
