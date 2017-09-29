@@ -1,5 +1,5 @@
-import moment from 'moment-timezone';
-import program from 'commander';
+import moment from "moment-timezone";
+import program from "commander";
 
 export function parseContributions(value) {
   const contributions = parseInt(value);
@@ -8,10 +8,11 @@ export function parseContributions(value) {
 }
 
 export function validateTimezone(value) {
-  if (!moment.tz.zone(value)) throw new Error(
-    'Please use a valid tz timezone: ' +
-    'https://en.wikipedia.org/wiki/List_of_tz_database_time_zones'
-  );
+  if (!moment.tz.zone(value))
+    throw new Error(
+      "Please use a valid tz timezone: " +
+        "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
+    );
   return value;
 }
 
