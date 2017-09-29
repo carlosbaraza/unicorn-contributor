@@ -2,19 +2,23 @@
 
 import program from 'commander';
 
-import { parseContributions, validateTimezone, parseTime } from './parsers';
+import {
+  parseContributions,
+  validateTimezone,
+  parseTime,
+  parseDate
+} from './parsers';
+
 import { deliverUnicorn } from './unicorn';
+import { printHeader } from './utils';
+
+printHeader();
 
 /**
  * CLI options
  */
 program
   .version('0.1.0')
-  .option(
-    '-c, --contributions [contributions]',
-    'Minimum 365, guess why [1000]',
-    parseContributions, parseContributions('1000')
-  )
   .option(
     '-w, --only-weekends',
     'Recruiters love geeks without social life'
@@ -33,6 +37,21 @@ program
     '-s, --time-sleep [time]',
     'Time for last sleepy commit [24]',
     parseTime, parseTime('24')
+  )
+  .option(
+    '-f, --from [date]',
+    'Date to start contributing [20160101]',
+    parseDate, parseDate('20160101')
+  )
+  .option(
+    '-t, --to [date]',
+    'Date to stop contributing [20190101]',
+    parseDate, parseDate('20190101')
+  )
+  .option(
+    '-c, --contributions [contributions]',
+    'Defaults to (number of days from --from to --to) times 3 [3000]',
+    parseContributions, parseContributions('3000')
   )
   .option(
     '-Z, --crazy-hours',

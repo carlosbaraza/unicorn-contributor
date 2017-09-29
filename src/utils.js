@@ -11,6 +11,17 @@ export const times = nunmberOfIterations => callback => {
   return iterator(0);
 };
 
+export function printError(...msgs) {
+  console.log('\n\nError: unfortunately you could not become a unicorn\n');
+  msgs.forEach(msg => console.log(msg));
+}
+
+export function printWarning(...msgs) {
+  console.log('\nWarning: -----------------------------------------------\n');
+  msgs.forEach(msg => console.log(msg));
+  console.log('\n--------------------------------------------------------\n');
+}
+
 export function printHeader() {
   console.log('');
   console.log('+-----------------------------------------------------------------+');

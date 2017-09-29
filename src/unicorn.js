@@ -26,13 +26,12 @@
 import program from "commander";
 import moment from "moment-timezone";
 import { spawnSync } from "child_process";
-import { times, randomInt, printUnicorn, printHeader } from "./utils";
+import { times, randomInt, printUnicorn } from "./utils";
 
 const _progress = require('cli-progress');
 const progressBar = new _progress.Bar({}, _progress.Presets.shades_classic);
 
 export function deliverUnicorn() {
-  printHeader();
   console.log('Generating your human looking contribution bar...\n');
   const days = initDays();
   initContributions(days);
@@ -46,10 +45,9 @@ export function deliverUnicorn() {
 function initDays() {
   const days = [];
 
-  const numberOfDays = 370; // Just a bit more than a year
+  const numberOfDays = program.to.diff(program.from, 'days');
   times(numberOfDays)(i => {
-    const date = moment()
-      .tz(program.timezone)
+    const date = program.to.clone()
       .subtract(numberOfDays - i, "days");
 
     days.push({ date, contributions: [{}] });
