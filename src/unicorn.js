@@ -26,7 +26,7 @@
 import program from "commander";
 import moment from "moment-timezone";
 import { spawnSync } from "child_process";
-import { times, randomInt, printUnicorn } from "./utils";
+import { times, randomInt, printUnicorn, printError } from "./utils";
 
 const _progress = require('cli-progress');
 const progressBar = new _progress.Bar({}, _progress.Presets.shades_classic);
@@ -42,10 +42,14 @@ export function deliverUnicorn() {
   celebrate();
 }
 
-function initDays() {
+export function initDays() {
   const days = [];
 
   const numberOfDays = program.to.diff(program.from, 'days');
+  if (numberOfDays < 0) {
+    printError('The "to" date should be later than the "from" date');
+    process.exit(1);
+  }
   times(numberOfDays)(i => {
     const date = program.to.clone()
       .subtract(numberOfDays - i, "days");
