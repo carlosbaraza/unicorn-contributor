@@ -58,6 +58,11 @@ program
     'Pretend you code instead of watching Netflix every night'
   )
   .option(
+    '-g, --gaps [gaps]',
+    `Leaves gaps between contributions, so your history looks realistic [0]`,
+    parseInt, 0
+  )
+  .option(
     '-v, --verbose',
     'Show git commands being executed, etc.'
   )

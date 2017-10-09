@@ -26,15 +26,15 @@
 import program from "commander";
 import moment from "moment-timezone";
 import { spawnSync } from "child_process";
-import { times, randomInt, printUnicorn, printError } from "./utils";
+import { times, randomInt, printUnicorn, processError } from "./utils";
 
 const _progress = require('cli-progress');
 const progressBar = new _progress.Bar({}, _progress.Presets.shades_classic);
 
 export function deliverUnicorn() {
   console.log('Generating your human looking contribution bar...\n');
-  const days = initDays();
-  initContributions(days);
+  const days = initDaysList();
+  assignContributionCommands(days);
 
   console.log('Running GIT contributions now...\n');
   progressBar.start(program.contributions, 0);
@@ -42,30 +42,50 @@ export function deliverUnicorn() {
   celebrate();
 }
 
-export function initDays() {
+export function initDaysList() {
   const days = [];
 
   const numberOfDays = program.to.diff(program.from, 'days');
-  if (numberOfDays < 0) {
-    printError('The "to" date should be later than the "from" date');
-    process.exit(1);
-  }
-  times(numberOfDays)(i => {
-    const date = program.to.clone()
-      .subtract(numberOfDays - i, "days");
+  if (numberOfDays < 0)
+    processError('The "to" date should be later than the "from" date');
 
-    days.push({ date, contributions: [{}] });
+  // Init list
+  times(numberOfDays)(i => {
+    const date = program.to.clone().subtract(numberOfDays - i, "days");
+    days.push({ date, contributions: [] });
   });
 
-  assignContributions(days);
+  // Init contributions
+  initContributions(days);
 
   return days;
 }
 
+export function initContributions(days) {
+  if (program.gaps) markGaps(days);
+
+  days.forEach(day => day.isGap || day.contributions.push({}));
+  assignContributions(days);
+}
+
+function findNonGap(days) {
+  const gapIndex = randomInt(days.length - 1, 0);
+  if (!days[gapIndex].isGap) return gapIndex;
+  return findNonGap(days);
+}
+
+export function markGaps(days) {
+  // Find unique days to mark as gaps
+  [...Array(program.gaps)].forEach(() => (days[findNonGap(days)].isGap = true));
+}
+
 function assignContributions(days) {
-  let remainingContributions = program.contributions - days.length;
+  const assignedContributions =
+    days.filter(day => day.contributions.length !== 0).length;
+  let remainingContributions = program.contributions - assignedContributions;
+
   while (remainingContributions > 0) {
-    const dayIndex = randomInt(days.length - 1, 0);
+    const dayIndex = findNonGap(days);
 
     // This makes it look more realistic
     let contributionsForTheDay = randomInt(15, 3);
@@ -79,7 +99,7 @@ function assignContributions(days) {
   }
 }
 
-function initContributions(days) {
+function assignContributionCommands(days) {
   days.map((day, dayIndex) => {
     day.contributions = day.contributions.map(contribution => {
       contribution.time = day.date.clone();

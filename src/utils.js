@@ -16,6 +16,11 @@ export function printError(...msgs) {
   msgs.forEach(msg => console.log(msg));
 }
 
+export function processError(...msgs) {
+  printError(...msgs);
+  process.exit(1);
+}
+
 export function printWarning(...msgs) {
   console.log('\nWarning: -----------------------------------------------\n');
   msgs.forEach(msg => console.log(msg));
