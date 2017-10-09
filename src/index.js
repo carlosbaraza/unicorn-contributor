@@ -12,6 +12,8 @@ import {
 import { deliverUnicorn } from './unicorn';
 import { printHeader } from './utils';
 
+import { DEFAULT_REALISTIC_GAPS } from './defaults';
+
 printHeader();
 
 /**
@@ -58,16 +60,19 @@ program
     'Pretend you code instead of watching Netflix every night'
   )
   .option(
-    '-g, --gaps [gaps]',
-    `Leaves gaps between contributions, so your history looks realistic [0]`,
-    parseInt, 0
+    '-r, --realistic',
+    `Humans can not contribute every day`
+  )
+  .option(
+    '-g, --realistic-gaps [gaps]',
+    `Leaves gaps between contributions, so your history looks realistic [${DEFAULT_REALISTIC_GAPS}]`,
+    g => parseInt(g), DEFAULT_REALISTIC_GAPS
   )
   .option(
     '-v, --verbose',
     'Show git commands being executed, etc.'
   )
   .parse(process.argv);
-
 
 // This is where the magic happens and you become a unicorn
 deliverUnicorn();

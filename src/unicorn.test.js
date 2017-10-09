@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import proxyquire from 'proxyquire';
 import sinon from 'sinon';
 import { parseDate } from './parsers';
+import { DEFAULT_REALISTIC_GAPS } from './defaults';
 
 let sandbox, processExit;
 let program = {
@@ -45,14 +46,15 @@ describe('unicorn', function() {
     });
   });
 
-  describe('--gaps', () => {
+  describe('--realistic', () => {
     it('leaves gaps', function() {
       program.from = parseDate('20160101');
       program.to = parseDate('20170101');
-      program.gaps = 75;
+      program.realistic = true;
+      program.realisticGaps = DEFAULT_REALISTIC_GAPS;
       const days = initDaysList();
       const gaps = days.filter(day => day.contributions.length === 0);
-      expect(gaps.length).to.be.eql(75);
+      expect(gaps.length).to.be.eql(DEFAULT_REALISTIC_GAPS);
     });
   });
 });

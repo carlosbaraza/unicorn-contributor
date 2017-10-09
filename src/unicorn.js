@@ -62,7 +62,7 @@ export function initDaysList() {
 }
 
 export function initContributions(days) {
-  if (program.gaps) markGaps(days);
+  if (program.realistic) markGaps(days);
 
   days.forEach(day => day.isGap || day.contributions.push({}));
   assignContributions(days);
@@ -76,7 +76,8 @@ function findNonGap(days) {
 
 export function markGaps(days) {
   // Find unique days to mark as gaps
-  [...Array(program.gaps)].forEach(() => (days[findNonGap(days)].isGap = true));
+  [...Array(program.realisticGaps)]
+    .forEach(() => (days[findNonGap(days)].isGap = true));
 }
 
 function assignContributions(days) {

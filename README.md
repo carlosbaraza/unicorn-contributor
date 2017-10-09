@@ -26,6 +26,8 @@ Options:
   -t, --to [date]                      Date to stop contributing [20190101]
   -c, --contributions [contributions]  Defaults to (number of days from --from to --to) times 3 [3000]
   -Z, --crazy-hours                    Pretend you code instead of watching Netflix every night
+  -r, --realistic                      Humans can not contribute every day
+  -g, --realistic-gaps [gaps]          Total gap count in the period [100]
   -v, --verbose                        Show git commands being executed, etc.
   -h, --help                           output usage information
 ```
