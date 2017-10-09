@@ -10,7 +10,7 @@ import {
 } from './parsers';
 
 import { deliverUnicorn } from './unicorn';
-import { printHeader } from './utils';
+import { printHeader, forTheLulz } from './utils';
 
 import { DEFAULT_REALISTIC_GAPS } from './defaults';
 
@@ -23,7 +23,22 @@ program
   .version('0.1.0')
   .option(
     '-w, --only-weekends',
-    'Recruiters love geeks without social life'
+    'Recruiters love geeks without social life',
+    forTheLulz.bind(null, '--only-weekends')
+  )
+  .option(
+    '-Z, --crazy-hours',
+    'Pretend you code instead of watching Netflix every night',
+    forTheLulz.bind(null, '--crazy-hours')
+  )
+  .option(
+    '-r, --realistic',
+    `Humans can not contribute every day`
+  )
+  .option(
+    '-g, --realistic-gaps [gaps]',
+    `Leaves gaps between contributions, so your history looks realistic [${DEFAULT_REALISTIC_GAPS}]`,
+    g => parseInt(g), DEFAULT_REALISTIC_GAPS
   )
   .option(
     '-t, --timezone [timezone]',
@@ -52,21 +67,8 @@ program
   )
   .option(
     '-c, --contributions [contributions]',
-    'Defaults to (number of days from --from to --to) times 3 [3000]',
+    'How many contributions make you the best Engineer at your company? [3000]',
     parseContributions, parseContributions('3000')
-  )
-  .option(
-    '-Z, --crazy-hours',
-    'Pretend you code instead of watching Netflix every night'
-  )
-  .option(
-    '-r, --realistic',
-    `Humans can not contribute every day`
-  )
-  .option(
-    '-g, --realistic-gaps [gaps]',
-    `Leaves gaps between contributions, so your history looks realistic [${DEFAULT_REALISTIC_GAPS}]`,
-    g => parseInt(g), DEFAULT_REALISTIC_GAPS
   )
   .option(
     '-v, --verbose',

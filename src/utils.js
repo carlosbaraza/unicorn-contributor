@@ -11,6 +11,13 @@ export const times = nunmberOfIterations => callback => {
   return iterator(0);
 };
 
+export function forTheLulz(option) {
+  printUnicorn();
+  console.log(`\n\nError: The option ${option} is not implemented yet.`);
+  console.log(`\nI added it to the README for the lulz\n`);
+  process.exit(1);
+}
+
 export function printError(...msgs) {
   console.log('\n\nError: unfortunately you could not become a unicorn\n');
   msgs.forEach(msg => console.log(msg));
