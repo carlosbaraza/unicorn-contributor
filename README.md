@@ -19,7 +19,6 @@ Options:
 
   -V, --version                        output the version number
   -w, --only-weekends                  Recruiters love geeks without social life
-  -t, --timezone [timezone]            Change your timezone (tz) [GMT]
   -u, --time-wake-up [time]            Time for first commit of the day [6]
   -s, --time-sleep [time]              Time for last sleepy commit [24]
   -f, --from [date]                    Date to start contributing [20160101]
