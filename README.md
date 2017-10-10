@@ -18,15 +18,18 @@ Usage: unicorn-contributor [options]
 Options:
 
   -V, --version                        output the version number
-  -w, --only-weekends                  Recruiters love geeks without social life
+  -r, --realistic                      Humans can not contribute every day
+  -g, --realistic-gaps [gaps]          Leaves gaps between contributions, so your history looks realistic [100]
+  -w, --only-weekends                  Recruiters love geeks without social life (WIP)
+  -Z, --crazy-hours                    Pretend you code instead of watching Netflix every night (WIP)
+  -a, --artistic                       Write your name in the history graph (WIP)
+  -p, --profile <stereotype>           Available profiles: night-owl, early-bird, office-hours, weekender (WIP)
+  -t, --timezone [timezone]            Change your timezone (tz) [GMT]
   -u, --time-wake-up [time]            Time for first commit of the day [6]
   -s, --time-sleep [time]              Time for last sleepy commit [24]
   -f, --from [date]                    Date to start contributing [20160101]
   -t, --to [date]                      Date to stop contributing [20190101]
-  -c, --contributions [contributions]  Defaults to (number of days from --from to --to) times 3 [3000]
-  -Z, --crazy-hours                    Pretend you code instead of watching Netflix every night
-  -r, --realistic                      Humans can not contribute every day
-  -g, --realistic-gaps [gaps]          Total gap count in the period [100]
+  -c, --contributions [contributions]  How many contributions make you the best Engineer at your company? [3000]
   -v, --verbose                        Show git commands being executed, etc.
   -h, --help                           output usage information
 ```

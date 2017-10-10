@@ -22,16 +22,6 @@ printHeader();
 program
   .version('0.1.0')
   .option(
-    '-w, --only-weekends',
-    'Recruiters love geeks without social life',
-    forTheLulz.bind(null, '--only-weekends')
-  )
-  .option(
-    '-Z, --crazy-hours',
-    'Pretend you code instead of watching Netflix every night',
-    forTheLulz.bind(null, '--crazy-hours')
-  )
-  .option(
     '-r, --realistic',
     `Humans can not contribute every day`
   )
@@ -39,6 +29,26 @@ program
     '-g, --realistic-gaps [gaps]',
     `Leaves gaps between contributions, so your history looks realistic [${DEFAULT_REALISTIC_GAPS}]`,
     g => parseInt(g), DEFAULT_REALISTIC_GAPS
+  )
+  .option(
+    '-w, --only-weekends',
+    'Recruiters love geeks without social life (WIP)',
+    forTheLulz.bind(null, '--only-weekends')
+  )
+  .option(
+    '-Z, --crazy-hours',
+    'Pretend you code instead of watching Netflix every night (WIP)',
+    forTheLulz.bind(null, '--crazy-hours')
+  )
+  .option(
+    '-a, --artistic',
+    'Write your name in the history graph (WIP)',
+    forTheLulz.bind(null, '--artistic')
+  )
+  .option(
+    '-p, --profile <stereotype>',
+    'Available profiles: night-owl, early-bird, office-hours, weekender (WIP)',
+    forTheLulz.bind(null, '--profile')
   )
   .option(
     '-t, --timezone [timezone]',
