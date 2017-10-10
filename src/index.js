@@ -81,6 +81,10 @@ program
     parseContributions, parseContributions('3000')
   )
   .option(
+    '-f, --force',
+    'Commit to this repository, even if it is not empty'
+  )
+  .option(
     '-v, --verbose',
     'Show git commands being executed, etc.'
   )

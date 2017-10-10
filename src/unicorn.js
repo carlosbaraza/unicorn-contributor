@@ -32,6 +32,8 @@ const _progress = require('cli-progress');
 const progressBar = new _progress.Bar({}, _progress.Presets.shades_classic);
 
 export function deliverUnicorn() {
+  sanityChecks();
+
   console.log('Generating your human looking contribution bar...\n');
   const days = initDaysList();
   assignContributionCommands(days);
@@ -40,6 +42,18 @@ export function deliverUnicorn() {
   progressBar.start(program.contributions, 0);
   contribute(days);
   celebrate();
+}
+
+function sanityChecks() {
+  const gitLogResults = runCommand('git log').output;
+
+  if (!/does not have any commits yet/.test(gitLogResults) && !program.force) {
+    processError(
+      'The commit history is not empty for this branch.',
+      'Please use a newly created repository.',
+      '\nAlternatively you can use --force to commit to this repository.'
+    );
+  }
 }
 
 export function initDaysList() {

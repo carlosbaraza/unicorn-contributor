@@ -30,6 +30,7 @@ Options:
   -f, --from [date]                    Date to start contributing [20160101]
   -t, --to [date]                      Date to stop contributing [20190101]
   -c, --contributions [contributions]  How many contributions make you the best Engineer at your company? [3000]
+  -f, --force                          Commit to this repository, even if it is not empty
   -v, --verbose                        Show git commands being executed, etc.
   -h, --help                           output usage information
 ```
