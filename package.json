@@ -1,6 +1,6 @@
 {
   "name": "unicorn-contributor",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Complete your GitHub contributions bar with one command",
   "main": "./src/index.js",
   "bin": {
