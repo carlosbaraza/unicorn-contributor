@@ -83,12 +83,13 @@ bump can improve performance and bring much more value.
 
 If you think that code metrics are useful for anything, please open an
 issue to this repo, and if your argumentation is good enough I will even
-consider removing the repository and the npm module.
+consider removing the repository and the ***npm module***.
 
 
 # Contributing
 
-I would be very glad if anyone wanted to contribute to this project. Adding
-crazy and nice features are totally welcome!
+I would be very glad if anyone wanted to contribute to this project. Crazy
+and nice features are totally welcomed!
 
-Some ideas that need some work are currently marked as WIP in the `--help` output.
+Some ideas that still need some work are currently marked as
+WIP in the `--help` output.
