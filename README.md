@@ -8,7 +8,7 @@ Do you feel pressed to complete your GitHub profile green bar?
 
 # Normal mode
 
-![Full GitHub contribution bar - Unicorn Contributor](https://raw.githubusercontent.com/carlosbaraza/unicorn-contributor/master/docs/imgs/green-bar.png)
+![Full GitHub contribution bar - Unicorn Contributor](https://raw.githubusercontent.com/carlosbaraza/unicorn-contributor/master/docs/imgs/normal-mode.png)
 
 1. ```npm i -g unicorn-contributor```
 2. Create a new repository in GitHub. For an obfuscated graph, create a private
@@ -20,7 +20,7 @@ private contributions" in your GitHub profile.
 
 # Realistic mode
 
-![Full GitHub contribution bar - Unicorn Contributor](https://raw.githubusercontent.com/carlosbaraza/unicorn-contributor/master/docs/imgs/realistic.png)
+![Full GitHub contribution bar - Unicorn Contributor](https://raw.githubusercontent.com/carlosbaraza/unicorn-contributor/master/docs/imgs/realistic-mode.png)
 
 1. ```npm i -g unicorn-contributor```
 2. Create a new repository in GitHub. For an obfuscated graph, create a private
