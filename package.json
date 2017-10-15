@@ -12,7 +12,10 @@
     "postbuild": "chmod +x ./dist/unicorn-contributor",
     "start": "babel-node ./src/index.js",
     "prepublish": "npm run build",
-    "test": "mocha --require babel-core/register ./test/**/*.js"
+    "test": "mocha --require babel-core/register ./test/**/*.js",
+    "preversion": "npm test",
+    "version": "npm run build && git add -A dist",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
