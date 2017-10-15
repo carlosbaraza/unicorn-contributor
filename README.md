@@ -2,17 +2,39 @@
 
 # Unicorn Contributor
 
+Do you feel pressed to complete your GitHub profile green bar?
+
+**Complete the GitHub contribution graph in few seconds!**
+
+# Normal mode
+
 ![Full GitHub contribution bar - Unicorn Contributor](https://raw.githubusercontent.com/carlosbaraza/unicorn-contributor/master/docs/imgs/green-bar.png)
 
-Pressed to complete your GitHub profile green bar? Complete the bar in one second.
-
 1. ```npm i -g unicorn-contributor```
-2. Create a new repository in GitHub
+2. Create a new repository in GitHub. For an obfuscated graph, create a private
+repository (paid). Then you should enable the contribution setting "Public and
+private contributions" in your GitHub profile.
 3. ```git clone YOUR_REPO_GIT_URL```
 4. ```cd YOUR_REPO_NAME```
 5. ```unicorn-contributor```
 
-# Options
+# Realistic mode
+
+![Full GitHub contribution bar - Unicorn Contributor](https://raw.githubusercontent.com/carlosbaraza/unicorn-contributor/master/docs/imgs/realistic.png)
+
+1. ```npm i -g unicorn-contributor```
+2. Create a new repository in GitHub. For an obfuscated graph, create a private
+repository (paid). Then you should enable the contribution setting "Public and
+private contributions" in your GitHub profile.
+3. ```git clone YOUR_REPO_GIT_URL```
+4. ```cd YOUR_REPO_NAME```
+5. ```unicorn-contributor --realistic```
+
+Note: With the flag `--realistic-gaps 100`, you can change the number
+of gaps for the period of time selected (default 2016-2019).
+
+
+# Options (--help)
 ```
 Usage: unicorn-contributor [options]
 
@@ -47,7 +69,7 @@ accurate measurement of value, which is the only thing that matters.
 Some real life examples that upset me enough to push me to create this:
 
 * Recruiters looking at the GitHub green bar like if it accurately displayed the
-quality of my potential work.
+quality of the Engineer.
 
 * Engineers judging other engineers just by looking at the GitHub profile.
 
@@ -62,3 +84,11 @@ bump can improve performance and bring much more value.
 If you think that code metrics are useful for anything, please open an
 issue to this repo, and if your argumentation is good enough I will even
 consider removing the repository and the npm module.
+
+
+# Contributing
+
+I would be very glad if anyone wanted to contribute to this project. Adding
+crazy and nice features are totally welcome!
+
+Some ideas that need some work are currently marked as WIP in the `--help` output.
