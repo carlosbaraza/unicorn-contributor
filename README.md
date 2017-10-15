@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/carlosbaraza/unicorn-contributor.svg?branch=master)](https://travis-ci.org/carlosbaraza/unicorn-contributor)
+
 # Unicorn Contributor
 
 ![Full GitHub contribution bar - Unicorn Contributor](https://raw.githubusercontent.com/carlosbaraza/unicorn-contributor/master/docs/imgs/green-bar.png)
