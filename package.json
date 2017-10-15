@@ -1,6 +1,6 @@
 {
   "name": "unicorn-contributor",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Complete your GitHub contributions bar with one command",
   "main": "./src/index.js",
   "bin": {
@@ -11,6 +11,7 @@
     "build": "rollup --config",
     "postbuild": "chmod +x ./dist/unicorn-contributor",
     "start": "babel-node ./src/index.js",
+    "prepublish": "npm run build",
     "test": "mocha --require babel-core/register ./test/**/*.js"
   },
   "repository": {
