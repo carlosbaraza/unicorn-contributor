@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 import proxyquire from 'proxyquire';
 import sinon from 'sinon';
-import { parseDate } from './parsers';
-import { DEFAULT_REALISTIC_GAPS } from './defaults';
+import { parseDate } from '../src/parsers';
+import { DEFAULT_REALISTIC_GAPS } from '../src/defaults';
 
 let sandbox, processExit;
 let program = {
@@ -11,8 +11,8 @@ let program = {
   contributions: 1000,
 };
 
-import * as utils from './utils';
-const { initDaysList } = proxyquire('./unicorn', {
+import * as utils from '../src/utils';
+const { initDaysList } = proxyquire('../src/unicorn', {
   'commander': program,
   'cli-progress': {},
   './utils': {
